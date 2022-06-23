@@ -1,6 +1,7 @@
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import datetime
 
 
 class Database:
@@ -35,14 +36,17 @@ class Database:
         with open('tables_sql/datas.sql') as f:
             read_f = f.read()
             connection.execute(read_f)
+            print("Creada tabla datas")
         with open('tables_sql/cines.sql') as f:
             read_f = f.read()
             connection.execute(read_f)
+            print("Creada tabla cines")
         # Agregar la tercer tabla que me falta
         session.commit()
 
     def insert_data_from_df(self, name_table, data_frame):
         engine = create_engine(self.url_database, echo=False)
         with engine.begin() as connection:
+            data_frame['fecha_carga'] = datetime.datetime.now()
             data_frame.to_sql(name_table, connection,
                               if_exists='replace', index=False)

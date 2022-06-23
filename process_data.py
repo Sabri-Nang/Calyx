@@ -28,15 +28,20 @@ def normalize_headers(header):
     return header
 
 
+def read_csv_normalize(category: str) -> pd.DataFrame():
+    file = get_last_csv(category)
+    df = pd.read_csv(file)
+    df.columns = [normalize_headers(column) for column in df.columns]
+    return df
+
+
 def df_category(category):
     '''
     Normaliza el csv de la category y devuelve un dataframe con
     las columnas que
     interesan. Agrega una columna según la categoría
     '''
-    file = get_last_csv(category)
-    df = pd.read_csv(file)
-    df.columns = [normalize_headers(column) for column in df.columns]
+    df = read_csv_normalize(category)
     df.rename(columns={
                        'cod_loc': 'cod_localidad',
                        'idprovincia': 'id_provincia',
@@ -57,6 +62,9 @@ def df_category(category):
 
 
 def df_data(categories: list[str]) -> pd.DataFrame():
+    '''
+    Obtiene el dataframe para la tabla data
+    '''
     df_data = pd.DataFrame()
     for category in categories:
         df = df_category(category)
@@ -64,11 +72,11 @@ def df_data(categories: list[str]) -> pd.DataFrame():
     return df_data
 
 
-def df_cines():
-    file = get_last_csv('cines')
-    df_cines = pd.read_csv(file)
-    df_cines.columns = [normalize_headers(column)
-                        for column in df_cines.columns]
+def df_cines() -> pd.DataFrame():
+    '''
+    Obtiene el dataframe para la tabla cines
+    '''
+    df_cines = read_csv_normalize('cines')
 
     df_cines['espacio_incaa'] = df_cines['espacio_incaa'].fillna(0)
     df_cines['espacio_incaa'] = df_cines['espacio_incaa'].replace(['0'], 0)
@@ -81,5 +89,42 @@ def df_cines():
             df_cines = df_cines.drop([column], axis=1)
 
     # Agrupo por provincia
-    df_cines = df_cines.groupby('provincia').sum()
+    df_cines = df_cines.groupby('provincia')
+    df_cines = df_cines.sum()
+    df_cines = df_cines.reset_index()
     return df_cines
+
+
+def df_registros() -> pd.DataFrame():
+    '''
+    Obtiene el dataframe para la tabla registros
+    '''
+    df_registros = pd.DataFrame()
+    categories = ['cines', 'bibliotecas', 'museos']
+
+    for category in categories:
+        df = read_csv_normalize(category)
+        row = {'tipo_registro': 'categoria',
+               'registro': category,
+               'cant_registros': df.shape[0]}
+        df_registros = df_registros.append(row, ignore_index=True)
+
+    for category in categories:
+        df_category = read_csv_normalize(category)
+        df_category_fuente = df_category.groupby('fuente')
+        for name, group in df_category_fuente:
+            row = {'tipo_registro': 'fuente', 
+                   'registro': name, 
+                   'cant_registros': group.shape[0]}
+            df_registros = df_registros.append(row, ignore_index=True)
+    
+    for category in categories:
+        df_category = read_csv_normalize(category)
+        df_category_prov = df_category.groupby('provincia')
+        for name, group in df_category_prov:
+            row = {'tipo_registro': 'categoria y provincia',
+                   'registro': f'{category} / {name}',
+                   'cant_registros': group.shape[0]}
+            df_registros = df_registros.append(row, ignore_index=True)
+        
+    return df_registros

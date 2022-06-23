@@ -101,6 +101,7 @@ Cod_Loc,IdProvincia,IdDepartamento,Observacion,Categoría,Subcategoria,Provincia
 82014020,82,82014,,Bibliotecas Populares,,Santa Fe,Caseros,Arteaga,Biblioteca Popular Sarmiento,Bv.San Martín 246,,2187,3467,4450194,s/d,,,-33.0917170,-61.7917170,Localización precisa,CONABIP,Comunitaria,1915,2018
 82014050,82,82014,,Bibliotecas Populares,,Santa Fe,Caseros,Casilda,Biblioteca Popular Carlos Casado,L.de La Torre 2369,,2170,3464,422144,bibcasado@dat1.net.ar,,,-33.0468670,-61.1680830,Localización precisa,CONABIP,Comunitaria,1908,2018
 82091060,82,82091,,Bibliotecas Populares,,Santa Fe,San Cristobal,Ceres,Biblioteca Popular Domingo Faustino Sarmiento,Av. de Mayo 238,,2340,3491,422432,sarmiento@interceres.com.ar,,,-29.8805330,-61.9440170,Localización precisa,CONABIP,Comunitaria,1910,2018
+
 82056030,82,82056,,Bibliotecas Populares,,Santa Fe,Iriondo,Cañada de Gómez,Biblioteca Popular Bernardino Rivadavia,Moreno 232,,2500,3471,421985,bibliobr@mcg.org.ar,,,-32.8184670,-61.3960000,Localización precisa,CONABIP,Comunitaria,1920,2018
 82084090,82,82084,,Bibliotecas Populares,,Santa Fe,Rosario,Coronel Bogado,Biblioteca Popular Mariano Moreno,Eleuterio Varela 565,,2103,3402,491164,bibliotecabogado@yahoo.com.ar,,,-33.3149500,-60.6011500,Localización precisa,CONABIP,Comunitaria,1919,2018
 82105090,82,82105,,Bibliotecas Populares,,Santa Fe,San Jeronimo,Coronda,Biblioteca Popular Coronel José Rodríguez,España  1815,,S2240AUO,342,4911197,bibliocoronda@hotmail.com,,,-31.9741830,-60.9155330,Localización precisa,CONABIP,Comunitaria,1912,2018
@@ -752,6 +753,7 @@ Cod_Loc,IdProvincia,IdDepartamento,Observacion,Categoría,Subcategoria,Provincia
 06441030,06,06441,,Bibliotecas Populares,,Buenos Aires,La Plata,La Plata,Biblioteca Popular Bernardo de Monteagudo,Calle 51 Nº 1088,,1900,221,4514082,asociacionlibertad@ganab.com,,,-34.9243670,-57.9591000,Localización precisa,CONABIP,Comunitaria,1940,2018
 82084250,82,82084,,Bibliotecas Populares,,Santa Fe,Rosario,Uranga,Biblioteca Popular Amor a la patria,Tucumán 10,,2105,3469,490296,s/d,,,-33.2615830,-60.7054830,Localización precisa,CONABIP,Comunitaria,1995,2018
 86035090,86,86035,,Bibliotecas Populares,,Santiago del Estero,Banda,La Banda,Biblioteca Popular Conrado Juarez,Rivadavia Norte 7,,4300,385,4273254,s/d,,,-27.7318170,-64.2373500,Localización precisa,CONABIP,Comunitaria,1940,2018
+
 06434010,06,06434,,Bibliotecas Populares,,Buenos Aires,Lanus,Remedios de Escalada,Biblioteca Popular Dr. E. Angel Barriocanal,General Deheza 3268,,1826,11,42308016,bibliotecabarriocanal@yahoo.com.ar,,,-34.7286870,-58.3859830,Localización precisa,CONABIP,Comunitaria,1955,2018
 14007210,14,14007,,Bibliotecas Populares,,Córdoba,Calamuchita,Santa Rosa de Calamuchita,Biblioteca Popular Almafuerte,Córdoba 550,,X5196ABL,3546,435852,info@biblioalmafuertesrc.com.ar,,,-32.0662670,-64.5400000,Localización precisa,CONABIP,Comunitaria,1959,2018
 82063170,82,82063,,Bibliotecas Populares,,Santa Fe,La Capital,Santa Fe,Biblioteca Popular Pablo A. Pizzurno,Bv. Galvez 950,,3000,342,4538855,bpapizzurno@yahoo.com.ar,,,-31.6393500,-60.6850670,Localización precisa,CONABIP,Comunitaria,1929,2018
@@ -1542,7 +1544,6 @@ Cod_Loc,IdProvincia,IdDepartamento,Observacion,Categoría,Subcategoria,Provincia
 14014010,14,14014,,Bibliotecas Populares,,Córdoba,Capital,Córdoba,Biblioteca Popular Henia Camiare,Ciriaco Ortiz 1080,,X5013AWB,s/d,s/d,s/d,,,-31.3990610,-64.1521610,Localización precisa,CONABIP,Comunitaria,1930,2018
 06490010,06,06490,,Bibliotecas Populares,,Buenos Aires,Lomas de Zamora,Banfield,Biblioteca Popular Alfonsina Storni,Falucho 1550,,1828,s/d,s/d,s/d,,,-34.7499170,-58.4467670,Localización precisa,CONABIP,Comunitaria,1930,2018
 06756010,06,06756,,Bibliotecas Populares,,Buenos Aires,San Isidro,San Isidro,Biblioteca Popular del labrador,Diego Palma 41,,1642,s/d,s/d,labrador27@fibertel.com.ar,,,-34.4708670,-58.5167330,Localización precisa,CONABIP,Comunitaria,1930,2018
-
 14091120,14,14091,,Bibliotecas Populares,,Córdoba,Punilla,La Falda,Biblioteca Popular Babel,Avda. España (Ex Estación Ferrocarril),,5172,3548,426525,babel@punillanet.com.ar,,,-31.0930330,-64.4868000,Localización precisa,CONABIP,Comunitaria,1999,2018
 66112040,66,66112,,Bibliotecas Populares,,Salta,Metan,Metán,Biblioteca Popular Marco M. de Avellaneda,José Ignacio Sierra 953,,4440,3876,422739,s/d,,,-25.4932670,-64.9697830,Localización precisa,CONABIP,Comunitaria,1916,2018
 82084270,82,82084,,Bibliotecas Populares,,Santa Fe,Rosario,Rosario,Biblioteca Popular Roberto Fontanarrosa,Esteco 778,,2000,11,4533741,bibliorfontanarrosa@hotmail.com,,,-32.9073450,-60.6966900,Localización precisa,CONABIP,Comunitaria,1930,2018
