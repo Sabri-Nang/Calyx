@@ -2,6 +2,7 @@ from xmlrpc.client import Boolean
 import requests
 import os
 from datetime import date
+from logger import logger
 
 
 def set_date():
@@ -47,8 +48,7 @@ def check_url(url: str) -> Boolean:
         else:
             return False
     except Exception:
-        # Loggear un error
-        print('error: la url no existe')
+        logger.error("La url no existe")
         return False
 
 
@@ -65,28 +65,29 @@ def create_dir(url: str) -> str:
 
         try:
             os.mkdir(category)
+            logger.info(f"Se creó el directorio {category}")
         except Exception:
-            # Agregar log info
-            print('El directorio ya existe')
+            logger.info(f"El directorio {category} ya existe")
 
         try:
             os.mkdir(os.path.join(category, year_month))
+            logger.info(f"Se creó el subdirectorio {year_month} en {category}")
         except Exception:
-            # Agregar log info
-            print('La ruta ya existe')
+            logger.info(f"La ruta {os.path.join(category, year_month)}\
+             ya existe")
 
         try:
             os.mkdir(os.path.join(category, year_month,
                      f'{category}-{date_now}'))
+            logger.info(f"Se creó el subdirectorio {category}-{date_now}\
+                en {year_month}")
         except Exception:
-            # Agregar log info
-            print('La ruta de fecha existe')
+            logger.info(f"El subdirectorio {category}-{date_now} ya existe")
 
         dir_dest = os.path.join(category, year_month, f'{category}-{date_now}')
 
     else:
-        # Logear error
-        print('No es posible crear el directorio para la url solicitada, no existe')
+        logger.error("La url solicitada no existe")
 
     return dir_dest
 
@@ -100,18 +101,14 @@ def save_csv(url: str) -> None:
         dir_dest = create_dir(url)
         file = os.path.split(url)[1]
         files = os.listdir(dir_dest)
-        # Puedo agregar un msj en el logging q diga q se reemplaxo el archivo
         with open(os.path.join(dir_dest, file), 'wb') as f, \
                 requests.get(url, stream=True) as r:
             for line in r.iter_lines():
                 f.write(line+'\n'.encode())
         if file in files:
-            # log info
-            print(f'El archivo {file} se sobreescribió')
+            logger.info(f'El archivo {file} se sobreescribió')
         else:
-            # log info
-            print(f'Se creo el archivo {file}')
+            logger.info(f'Se creo el archivo {file}')
 
     else:
-        # Agregar logging error
-        print("No se puede guardar csv de una ruta caida")
+        logger.error("No se puede guardar csv de una ruta caida")

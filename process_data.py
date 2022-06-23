@@ -35,7 +35,7 @@ def read_csv_normalize(category: str) -> pd.DataFrame():
     return df
 
 
-def df_category(category):
+def df_category(category: str) -> pd.DataFrame():
     '''
     Normaliza el csv de la category y devuelve un dataframe con
     las columnas que

@@ -2,17 +2,18 @@ from decouple import config
 from download_csv import save_csv
 import process_data
 from database import Database
+from logger import logger
 
 
 def main():
     SETTINGS = ['URL_MUSEOS', 'URL_BIBLIOTECAS', 'URL_CINES',
-                'DB_USER', 'DB_PASS', 'DB_HOS_NAME', 'DB_NAME']
+                'DB_USER', 'DB_PASS', 'DB_HOST_NAME', 'DB_NAME']
 
     for setting in SETTINGS:
         try:
             config(setting)
         except Exception:
-            print('No se ha establecido {setting} en el archivo settings.ini')
+            logger.error(f"No se ha establecido {setting} en el archivo settings.ini")
             return
 
     url_museos = config('URL_MUSEOS')
