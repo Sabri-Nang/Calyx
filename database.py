@@ -19,24 +19,19 @@ class Database:
         self.url_database = f"postgresql://{user}:{password}@{host}:{port}/\
                              {database_name}"
 
-    #def get_engine(user, password, host, port, database_name):
-    #    url_database = f"postgresql://{user}:{password}@{host}:{port}/\
-    #                    {database_name}"
-    #    if not database_exists(url_database):
-    #        create_database(url_database)
-    #        logger.info("Creando base de datos  {database_name}")
-    #    engine = create_engine(url_database, echo=False)
-    #    return engine
-
     def create_tables(self):
         if not database_exists(self.url_database):
             create_database(self.url_database)
             logger.info("Creando base de datos  {database_name}")
-        engine = create_engine(self.url_database, echo=False)
-        Session = sessionmaker(engine)
-        session = Session()
-        connection = engine.connect()
-        
+        try:
+            engine = create_engine(self.url_database, echo=False)
+            Session = sessionmaker(engine)
+            session = Session()
+            connection = engine.connect()
+            logger.info("Conectado a la base de datos")
+        except Exception:
+            logger.error("No se puede conectar a la base de datos")
+            return
         with open('tables_sql/datos.sql') as f:
             read_f = f.read()
             connection.execute(read_f)
