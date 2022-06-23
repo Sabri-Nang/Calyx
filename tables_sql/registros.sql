@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.registros
+CREATE TABLE IF NOT EXISTS registros
 (
     id integer NOT NULL,
     tipo_registro character varying(255),

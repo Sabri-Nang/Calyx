@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.datas
+CREATE TABLE IF NOT EXISTS datos
 (
     id integer NOT NULL,
     cod_localidad integer,

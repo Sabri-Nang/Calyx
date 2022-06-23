@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.cines
+CREATE TABLE IF NOT EXISTS cines
 (
     id integer NOT NULL,
     provincia character varying(255),

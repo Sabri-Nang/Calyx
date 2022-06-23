@@ -61,15 +61,15 @@ def df_category(category):
     return df_category
 
 
-def df_data(categories: list[str]) -> pd.DataFrame():
+def df_datos(categories: list[str]) -> pd.DataFrame():
     '''
-    Obtiene el dataframe para la tabla data
+    Obtiene el dataframe para la tabla datos
     '''
-    df_data = pd.DataFrame()
+    df_datos = pd.DataFrame()
     for category in categories:
         df = df_category(category)
-        df_data = pd.concat([df_data, df])
-    return df_data
+        df_datos = pd.concat([df_datos, df])
+    return df_datos
 
 
 def df_cines() -> pd.DataFrame():
@@ -107,17 +107,19 @@ def df_registros() -> pd.DataFrame():
         row = {'tipo_registro': 'categoria',
                'registro': category,
                'cant_registros': df.shape[0]}
-        df_registros = df_registros.append(row, ignore_index=True)
+        row = pd.DataFrame([row])
+        df_registros = pd.concat([df_registros, row])
 
     for category in categories:
         df_category = read_csv_normalize(category)
         df_category_fuente = df_category.groupby('fuente')
         for name, group in df_category_fuente:
-            row = {'tipo_registro': 'fuente', 
-                   'registro': name, 
+            row = {'tipo_registro': 'fuente',
+                   'registro': name,
                    'cant_registros': group.shape[0]}
-            df_registros = df_registros.append(row, ignore_index=True)
-    
+            row = pd.DataFrame([row])
+            df_registros = pd.concat([df_registros, row])
+
     for category in categories:
         df_category = read_csv_normalize(category)
         df_category_prov = df_category.groupby('provincia')
@@ -125,6 +127,7 @@ def df_registros() -> pd.DataFrame():
             row = {'tipo_registro': 'categoria y provincia',
                    'registro': f'{category} / {name}',
                    'cant_registros': group.shape[0]}
-            df_registros = df_registros.append(row, ignore_index=True)
-        
+            row = pd.DataFrame([row])
+            df_registros = pd.concat([df_registros, row])
+
     return df_registros

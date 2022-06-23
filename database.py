@@ -33,10 +33,10 @@ class Database:
         session = Session()
         connection = engine.connect()
         print('Crar tabla')
-        with open('tables_sql/datas.sql') as f:
+        with open('tables_sql/datos.sql') as f:
             read_f = f.read()
             connection.execute(read_f)
-            print("Creada tabla datas")
+            print("Creada tabla datos")
         with open('tables_sql/cines.sql') as f:
             read_f = f.read()
             connection.execute(read_f)
