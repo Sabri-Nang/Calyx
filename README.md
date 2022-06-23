@@ -1,12 +1,12 @@
-## Calyx Challenger
+# Calyx Challenger
 
-# Entorno virtual
+## Entorno virtual
 
 En el entorno virtual instalar las librerias especificadas en requirements.txt
 Desde linea de comandos:
 python -m pip install -r requirements.txt
 
-# Datos de configuración
+## Datos de configuración
 
 Se debe crear un archivo settings.ini que contenga:
 [settings]
