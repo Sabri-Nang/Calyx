@@ -19,6 +19,4 @@ DB_USER =
 DB_PASS = 
 DB_NAME = 
 
-Donde DB_HOST_NAME corresponde al nombre del host name de la base de datos,
-DB_PORT el puerto de la base de datos, DB_USER el usuario,
-DB_PASS el password de la base de datos y DB_NAME el nombre de la base de datos
+Donde DB_HOST_NAME corresponde al nombre del host name de la base de datos, DB_PORT el puerto de la base de datos, DB_USER el usuario, DB_PASS el password de la base de datos y DB_NAME el nombre de la base de datos
